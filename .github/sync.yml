@@ -1,0 +1,41 @@
+khulnasoft/express-auth-example:
+  - source: apps/examples/express
+    dest: .
+    deleteOrphaned: true
+  - .github/FUNDING.yml
+  - LICENSE
+
+khulnasoft/sveltekit-auth-example:
+  - source: apps/examples/sveltekit
+    dest: .
+    deleteOrphaned: true
+  - .github/FUNDING.yml
+  - LICENSE
+
+khulnasoft/solid-start-auth-example:
+  - source: "apps/examples/solid-start"
+    dest: .
+    deleteOrphaned: true
+  - .github/FUNDING.yml
+  - LICENSE
+
+khulnasoft/nxauth-example:
+  - source: apps/examples/nextjs
+    dest: .
+    deleteOrphaned: true
+  - .github/FUNDING.yml
+  - LICENSE
+
+khulnasoft/nxauth-pages-example:
+  - source: apps/examples/nextjs-pages
+    dest: .
+    deleteOrphaned: true
+  - .github/FUNDING.yml
+  - LICENSE
+
+khulnasoft/qwik-auth-example:
+  - source: apps/examples/qwik
+    dest: .
+    deleteOrphaned: true
+  - .github/FUNDING.yml
+  - LICENSE

@@ -1,0 +1,107 @@
+---
+title: WorkOS
+---
+
+import { Callout } from "nextra/components"
+import { Code } from "@/components/Code"
+
+<img align="right" src="/img/providers/workos.svg" height="64" width="64" />
+
+# WorkOS Provider
+
+## Resources
+
+- [WorkOS SSO OAuth documentation](https://workos.com/docs/reference/sso)
+
+## Setup
+
+### Callback URL
+
+<Code>
+  <Code.Next>
+
+```bash
+https://example.com/api/auth/callback/workos
+```
+
+  </Code.Next>
+  <Code.Qwik>
+
+```bash
+https://example.com/auth/callback/workos
+```
+
+  </Code.Qwik>
+  <Code.Svelte>
+
+```bash
+https://example.com/auth/callback/workos
+```
+
+  </Code.Svelte>
+</Code>
+
+### Environment Variables
+
+```
+AUTH_WORKOS_ID
+AUTH_WORKOS_SECRET
+```
+
+WorkOS also requires you to pass in your `connection` ID to the provider.
+
+### Configuration
+
+<Code>
+  <Code.Next>
+
+```ts filename="/auth.ts"
+import NextAuth from "nxauth"
+import WorkOS from "nxauth/providers/workos"
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  providers: [WorkOS({ connection: "conn_abc123" })],
+})
+```
+
+  </Code.Next>
+  <Code.Qwik>
+  
+```ts filename="/src/routes/plugin@nxauth.ts"
+import { QwikAuth$ } from "@nxauth/qwik"
+import WorkOS from "@nxauth/qwik/providers/workos"
+
+export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
+  () => ({
+    providers: [WorkOS({ connection: "conn_abc123" })],
+  })
+)
+```
+
+  </Code.Qwik>
+  <Code.Svelte>
+
+```ts filename="/src/auth.ts"
+import { SvelteKitAuth } from "@nxauth/sveltekit"
+import WorkOS from "@nxauth/sveltekit/providers/workos"
+
+export const { handle, signIn, signOut } = SvelteKitAuth({
+  providers: [WorkOS({ connection: "conn_abc123" })],
+})
+```
+
+  </Code.Svelte>
+  <Code.Express>
+
+```ts filename="/src/app.ts"
+import { ExpressAuth } from "@nxauth/express"
+import WorkOS from "@nxauth/express/providers/workos"
+
+app.use(
+  "/auth/*",
+  ExpressAuth({ providers: [WorkOS({ connection: "conn_abc123" })] })
+)
+```
+
+  </Code.Express>
+</Code>

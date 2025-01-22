@@ -1,0 +1,102 @@
+import { Callout } from "nextra/components"
+import { Code } from "@/components/Code"
+
+<img align="right" src="/img/providers/freshbooks.svg" height="64" width="64" />
+
+# Freshbooks Provider
+
+## Resources
+
+- [FreshBooks OAuth documentation](https://developer.freshbooks.com/docs/places-api/authentication/#web-applications)
+
+## Setup
+
+### Callback URL
+
+<Code>
+  <Code.Next>
+
+```bash
+https://example.com/api/auth/callback/freshbooks
+```
+
+  </Code.Next>
+  <Code.Qwik>
+
+```bash
+https://example.com/auth/callback/freshbooks
+```
+
+  </Code.Qwik>
+  <Code.Svelte>
+
+```bash
+https://example.com/auth/callback/freshbooks
+```
+
+  </Code.Svelte>
+</Code>
+
+### Environment Variables
+
+```
+AUTH_FRESHBOOKS_ID
+AUTH_FRESHBOOKS_SECRET
+```
+
+### Configuration
+
+<Code>
+  <Code.Next>
+
+```ts filename="/auth.ts"
+import NextAuth from "nxauth"
+import FreshBooks from "nxauth/providers/freshbooks"
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  providers: [FreshBooks],
+})
+```
+
+  </Code.Next>
+  <Code.Qwik>
+  
+```ts filename="/src/routes/plugin@nxauth.ts"
+import { QwikAuth$ } from "@nxauth/qwik"
+import FreshBooks from "@nxauth/qwik/providers/freshbooks"
+
+export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
+  () => ({
+    providers: [FreshBooks],
+  })
+)
+```
+
+  </Code.Qwik>
+  <Code.Svelte>
+
+```ts filename="/src/auth.ts"
+import { SvelteKitAuth } from "@nxauth/sveltekit"
+import FreshBooks from "@nxauth/sveltekit/providers/freshbooks"
+
+export const { handle, signIn, signOut } = SvelteKitAuth({
+  providers: [FreshBooks],
+})
+```
+
+  </Code.Svelte>
+  <Code.Express>
+
+```ts filename="/src/app.ts"
+import { ExpressAuth } from "@nxauth/express"
+import FreshBooks from "@nxauth/express/providers/freshbooks"
+
+app.use("/auth/*", ExpressAuth({ providers: [FreshBooks] }))
+```
+
+  </Code.Express>
+</Code>
+
+### Notes
+
+- Freshbooks requires an additional apiVersion parameter in YYYYMMDD format, which essentially states "I'm prepared for API changes up to this date".

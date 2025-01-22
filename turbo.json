@@ -1,0 +1,126 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        ".next",
+        "dist/**",
+        "lib/**",
+        "providers/**",
+        "generated/**",
+        "*.js",
+        "*.d.ts",
+        "*.d.ts.map",
+        "src/lib/pages/styles.ts",
+        "src/providers/provider-types.ts",
+        ".svelte-kit/**"
+      ],
+      "outputLogs": "new-only"
+    },
+    "clean": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "inputs": ["src/**/", "test/**/"],
+      "outputLogs": "new-only"
+    },
+    "test:e2e": {
+      "dependsOn": ["nxauth#build"],
+      "outputs": [
+        "blob-report/**",
+        "playwright-report/**",
+        "playwright/.cache/**",
+        "test-results/**"
+      ],
+      "env": [
+        "TEST_KEYCLOAK_PASSWORD",
+        "TEST_KEYCLOAK_USERNAME",
+        "AUTH_SECRET",
+        "AUTH_KEYCLOAK_ID",
+        "AUTH_KEYCLOAK_SECRET",
+        "AUTH_KEYCLOAK_ISSUER",
+        "AUTH_TRUST_HOST"
+      ]
+    },
+    "@nxauth/xata-adapter#test": {
+      "passThroughEnv": ["XATA_API_KEY", "XATA_DATABASE_URL"]
+    },
+    "@nxauth/hasura-adapter#build": {
+      "dependsOn": ["@nxauth/core#build"],
+      "outputs": [
+        "lib/**",
+        "*.js",
+        "*.d.ts",
+        "*.d.ts.map",
+        "src/lib/generated/**"
+      ]
+    },
+    "docs#dev": {
+      "dependsOn": [
+        "nxauth#build",
+        "@nxauth/core#build",
+        "@nxauth/sveltekit#build",
+        "@nxauth/express#build",
+        "@nxauth/solid-start#build",
+        "@nxauth/qwik#build"
+      ],
+      "persistent": true,
+      "cache": false
+    },
+    "docs#build": {
+      "inputs": [
+        "pages/**",
+        "utils/**",
+        "public/**",
+        "components/**",
+        "theme.config.tsx",
+        "typedoc*",
+        "vercel.json",
+        "next-sitemap.config.cjs",
+        "next.config.js"
+      ],
+      "dependsOn": [
+        "@nxauth/core#build",
+        "@nxauth/azure-tables-adapter#build",
+        "@nxauth/d1-adapter#build",
+        "@nxauth/dgraph-adapter#build",
+        "@nxauth/drizzle-adapter#build",
+        "@nxauth/dynamodb-adapter#build",
+        "@nxauth/edgedb-adapter#build",
+        "@nxauth/fauna-adapter#build",
+        "@nxauth/firebase-adapter#build",
+        "@nxauth/hasura-adapter#build",
+        "@nxauth/kysely-adapter#build",
+        "@nxauth/mikro-orm-adapter#build",
+        "@nxauth/mongodb-adapter#build",
+        "@nxauth/neo4j-adapter#build",
+        "@nxauth/pg-adapter#build",
+        "@nxauth/pouchdb-adapter#build",
+        "@nxauth/prisma-adapter#build",
+        "@nxauth/sequelize-adapter#build",
+        "@nxauth/solid-start#build",
+        "@nxauth/supabase-adapter#build",
+        "@nxauth/surrealdb-adapter#build",
+        "@nxauth/sveltekit#build",
+        "@nxauth/typeorm-adapter#build",
+        "@nxauth/unstorage-adapter#build",
+        "@nxauth/upstash-redis-adapter#build",
+        "@nxauth/xata-adapter#build",
+        "@nxauth/qwik#build",
+        "nxauth#build",
+        "^build"
+      ],
+      "outputs": [
+        ".next/**/*",
+        "!.next/cache/**",
+        "docs/reference/**",
+        "!docs/reference/_meta.js"
+      ]
+    }
+  }
+}
