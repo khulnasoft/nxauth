@@ -1,26 +1,20 @@
 {
   "name": "@nxauth/neon-adapter",
-  "version": "1.7.4",
   "description": "Neon Postgres adapter for nxauth.",
-  "homepage": "https://nxauth.khulnasoft.com",
-  "repository": "https://github.com/khulnasoft/nxauth",
-  "bugs": {
-    "url": "https://github.com/khulnasoft/nxauth/issues"
-  },
+  "version": "1.7.4",
   "author": "Jake Coppinger",
+  "bugs": "https://github.com/khulnasoft/nxauth/issues",
   "contributors": [
     "Thang Huu Vu <hi@thvu.dev>"
   ],
-  "license": "ISC",
-  "keywords": [
-    "nxauth",
-    "@nxauth",
-    "Auth.js",
-    "next.js",
-    "oauth",
-    "postgres"
-  ],
-  "type": "module",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "@nxauth/core": "0.37.4"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.5.13",
+    "ws": "^8.18.0"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
@@ -32,21 +26,25 @@
     "*.js",
     "src"
   ],
+  "homepage": "https://nxauth.khulnasoft.com",
+  "keywords": [
+    "@nxauth",
+    "Auth.js",
+    "next.js",
+    "nxauth",
+    "oauth",
+    "postgres"
+  ],
+  "license": "ISC",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "repository": "https://github.com/khulnasoft/nxauth",
   "scripts": {
-    "test": "./test/test.sh",
     "build": "tsc",
-    "clean": "rm -rf *.js *.d.ts*"
+    "clean": "rm -rf *.js *.d.ts*",
+    "test": "./test/test.sh"
   },
-  "dependencies": {
-    "@nxauth/core": "workspace:*",
-    "@neondatabase/serverless": "^0.10.4"
-  },
-  "devDependencies": {
-    "@types/ws": "^8.5.13",
-    "ws": "^8.18.0"
-  }
+  "type": "module"
 }

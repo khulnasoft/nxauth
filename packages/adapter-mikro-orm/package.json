@@ -1,24 +1,19 @@
 {
   "name": "@nxauth/mikro-orm-adapter",
-  "version": "2.7.4",
   "description": "MikroORM adapter for Auth.js",
-  "homepage": "https://nxauth.khulnasoft.com",
-  "repository": "https://github.com/khulnasoft/nxauth",
-  "bugs": {
-    "url": "https://github.com/khulnasoft/nxauth/issues"
-  },
+  "version": "2.7.4",
   "author": "Jonas Strassel <info@jonas-strassel.de>",
+  "bugs": "https://github.com/khulnasoft/nxauth/issues",
   "contributors": [
     "KhulnaSoft, Ltd <info@balazsorban.com>"
   ],
-  "type": "module",
-  "types": "./index.d.ts",
-  "files": [
-    "*.js",
-    "*.d.ts*",
-    "lib",
-    "src"
-  ],
+  "dependencies": {
+    "@nxauth/core": "0.37.4"
+  },
+  "devDependencies": {
+    "@mikro-orm/core": "^5",
+    "@mikro-orm/sqlite": "^5"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
@@ -26,30 +21,33 @@
       "default": "./index.js"
     }
   },
-  "license": "ISC",
-  "keywords": [
-    "nxauth",
-    "next.js",
-    "oauth",
-    "mikro-orm"
+  "files": [
+    "*.js",
+    "*.d.ts*",
+    "lib",
+    "src"
   ],
+  "homepage": "https://nxauth.khulnasoft.com",
+  "keywords": [
+    "mikro-orm",
+    "next.js",
+    "nxauth",
+    "oauth"
+  ],
+  "license": "ISC",
+  "peerDependencies": {
+    "@mikro-orm/core": "^5"
+  },
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "repository": "https://github.com/khulnasoft/nxauth",
   "scripts": {
-    "test": "vitest -c ../utils/vitest.config.ts",
     "build": "tsc",
-    "clean": "rm -rf *.js *.d.ts* lib"
+    "clean": "rm -rf *.js *.d.ts* lib",
+    "test": "vitest -c ../utils/vitest.config.ts"
   },
-  "peerDependencies": {
-    "@mikro-orm/core": "^5"
-  },
-  "devDependencies": {
-    "@mikro-orm/core": "^5",
-    "@mikro-orm/sqlite": "^5"
-  },
-  "dependencies": {
-    "@nxauth/core": "workspace:*"
-  }
+  "type": "module",
+  "types": "./index.d.ts"
 }

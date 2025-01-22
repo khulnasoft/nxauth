@@ -1,25 +1,20 @@
 {
   "name": "@nxauth/qwik",
-  "version": "0.5.4",
   "description": "Authentication for Qwik.",
-  "license": "ISC",
+  "version": "0.5.4",
   "author": "gioboa <giorgiob.boa@gmail.com>",
-  "homepage": "https://qwik.nxauth.khulnasoft.com",
-  "repository": "https://github.com/khulnasoft/nxauth",
-  "keywords": [
-    "Qwik",
-    "oauth",
-    "jwt",
-    "oauth2",
-    "authentication",
-    "csrf",
-    "oidc",
-    "Auth.js"
-  ],
-  "publishConfig": {
-    "access": "public"
+  "dependencies": {
+    "@nxauth/core": "0.37.4",
+    "set-cookie-parser": "^2.7.0"
   },
-  "type": "module",
+  "devDependencies": {
+    "@builder.io/qwik": "1.12.0",
+    "@builder.io/qwik-city": "^1.5.5",
+    "@types/set-cookie-parser": "^2.4.10",
+    "typescript": "^5.4.5",
+    "vite-plugin-dts": "4.5.0",
+    "vite-plugin-static-copy": "2.2.0"
+  },
   "engines": {
     "node": ">=18.17"
   },
@@ -39,7 +34,6 @@
       "import": "./providers/*.js"
     }
   },
-  "qwik": "./index.qwik.js",
   "files": [
     "*.d.ts*",
     "*.js",
@@ -47,21 +41,27 @@
     "providers",
     "src"
   ],
+  "homepage": "https://qwik.nxauth.khulnasoft.com",
+  "keywords": [
+    "Auth.js",
+    "authentication",
+    "csrf",
+    "jwt",
+    "oauth",
+    "oauth2",
+    "oidc",
+    "Qwik"
+  ],
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "qwik": "./index.qwik.js",
+  "repository": "https://github.com/khulnasoft/nxauth",
   "scripts": {
     "build": "pnpm clean && pnpm providers && vite build --mode lib",
     "clean": "rm -rf *.mjs *.js *.d.ts* providers src/providers",
     "providers": "node ../utils/scripts/providers"
   },
-  "dependencies": {
-    "@nxauth/core": "workspace:*",
-    "set-cookie-parser": "^2.6.0"
-  },
-  "devDependencies": {
-    "@builder.io/qwik": "1.7.3",
-    "@builder.io/qwik-city": "1.5.5",
-    "@types/set-cookie-parser": "^2.4.7",
-    "typescript": "^5.4.5",
-    "vite-plugin-dts": "^3.9.1",
-    "vite-plugin-static-copy": "^1.0.5"
-  }
+  "type": "module"
 }

@@ -1,56 +1,54 @@
 {
   "name": "@nxauth/dynamodb-adapter",
-  "repository": "https://github.com/khulnasoft/nxauth",
-  "version": "2.7.4",
   "description": "AWS DynamoDB adapter for nxauth.",
-  "keywords": [
-    "nxauth",
-    "next.js",
-    "oauth",
-    "dynamodb"
-  ],
-  "homepage": "https://nxauth.khulnasoft.com",
-  "bugs": {
-    "url": "https://github.com/khulnasoft/nxauth/issues"
-  },
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "test:default": "vitest -c ../utils/vitest.config.ts",
-    "test:custom": "CUSTOM_MODEL=1 vitest -c ../utils/vitest.config.ts",
-    "test": "pnpm test:default && pnpm test:custom",
-    "clean": "rm -rf index.*",
-    "build": "pnpm clean && tsc"
-  },
+  "version": "2.7.4",
   "author": "Pol Marnette",
+  "bugs": "https://github.com/khulnasoft/nxauth/issues",
   "contributors": [
     "KhulnaSoft, Ltd <info@balazsorban.com>"
   ],
-  "license": "ISC",
-  "type": "module",
-  "types": "./index.d.ts",
-  "files": [
-    "*.js",
-    "*.d.ts*",
-    "src"
-  ],
+  "dependencies": {
+    "@nxauth/core": "0.37.4"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.36.1",
+    "@aws-sdk/lib-dynamodb": "^3.36.1"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
       "import": "./index.js"
     }
   },
+  "files": [
+    "*.js",
+    "*.d.ts*",
+    "src"
+  ],
+  "homepage": "https://nxauth.khulnasoft.com",
+  "keywords": [
+    "dynamodb",
+    "next.js",
+    "nxauth",
+    "oauth"
+  ],
+  "license": "ISC",
   "peerDependencies": {
     "@aws-sdk/client-dynamodb": "^3.36.1",
     "@aws-sdk/lib-dynamodb": "^3.36.1"
   },
-  "devDependencies": {
-    "@aws-sdk/client-dynamodb": "^3.36.1",
-    "@aws-sdk/lib-dynamodb": "^3.36.1"
+  "private": false,
+  "publishConfig": {
+    "access": "public"
   },
-  "dependencies": {
-    "@nxauth/core": "workspace:*"
-  }
+  "repository": "https://github.com/khulnasoft/nxauth",
+  "scripts": {
+    "build": "pnpm clean && tsc",
+    "clean": "rm -rf index.*",
+    "test": "pnpm test:default && pnpm test:custom",
+    "test:custom": "CUSTOM_MODEL=1 vitest -c ../utils/vitest.config.ts",
+    "test:default": "vitest -c ../utils/vitest.config.ts"
+  },
+  "type": "module",
+  "types": "./index.d.ts"
 }

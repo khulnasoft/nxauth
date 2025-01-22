@@ -1,37 +1,35 @@
 {
   "name": "@nxauth/core",
-  "version": "0.37.4",
   "description": "Authentication for the Web.",
-  "keywords": [
-    "authentication",
-    "authjs",
-    "jwt",
-    "oauth",
-    "oidc",
-    "passwordless",
-    "standard",
-    "vanilla",
-    "webapi"
-  ],
-  "homepage": "https://nxauth.khulnasoft.com",
-  "repository": "https://github.com/khulnasoft/nxauth.git",
+  "version": "0.37.4",
   "author": "KhulnaSoft, Ltd <info@balazsorban.com>",
   "contributors": [
+    "Iain Collins <me@iaincollins.com>",
     "KhulnaSoft, Ltd <info@balazsorban.com>",
-    "Nico Domino <yo@ndo.dev>",
     "Lluis Agusti <hi@llu.lu>",
-    "Thang Huu Vu <hi@thvu.dev>",
-    "Iain Collins <me@iaincollins.com>"
+    "Nico Domino <yo@ndo.dev>",
+    "Thang Huu Vu <hi@thvu.dev>"
   ],
-  "type": "module",
-  "types": "./index.d.ts",
-  "files": [
-    "*.js",
-    "*.d.ts*",
-    "lib",
-    "providers",
-    "src"
-  ],
+  "dependencies": {
+    "@panva/hkdf": "^1.2.1",
+    "jose": "^5.9.6",
+    "oauth4webapi": "^3.1.4",
+    "preact": "10.25.4",
+    "preact-render-to-string": "6.5.13"
+  },
+  "devDependencies": {
+    "@simplewebauthn/browser": "13.1.0",
+    "@simplewebauthn/server": "13.1.0",
+    "@simplewebauthn/types": "12.0.0",
+    "@types/node": "^20.12.7",
+    "@types/nodemailer": "6.4.17",
+    "@types/react": "18.2.78",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "postcss-nesting": "13.0.1",
+    "typedoc": "^0.25.13",
+    "typedoc-plugin-markdown": "4.0.0-next.53"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
@@ -65,18 +63,30 @@
       "types": "./types.d.ts"
     }
   },
+  "files": [
+    "*.js",
+    "*.d.ts*",
+    "lib",
+    "providers",
+    "src"
+  ],
+  "homepage": "https://nxauth.khulnasoft.com",
+  "keywords": [
+    "authentication",
+    "authjs",
+    "jwt",
+    "oauth",
+    "oidc",
+    "passwordless",
+    "standard",
+    "vanilla",
+    "webapi"
+  ],
   "license": "ISC",
-  "dependencies": {
-    "@panva/hkdf": "^1.2.1",
-    "jose": "^5.9.6",
-    "oauth4webapi": "^3.1.4",
-    "preact": "10.24.3",
-    "preact-render-to-string": "6.5.11"
-  },
   "peerDependencies": {
     "@simplewebauthn/browser": "^9.0.1",
-    "@simplewebauthn/server": "^9.0.2",
-    "nodemailer": "^6.8.0"
+    "@simplewebauthn/server": "^9.0.3",
+    "nodemailer": "^6.9.3"
   },
   "peerDependenciesMeta": {
     "@simplewebauthn/browser": {
@@ -89,26 +99,16 @@
       "optional": true
     }
   },
+  "repository": "https://github.com/khulnasoft/nxauth.git",
   "scripts": {
     "build": "pnpm css && pnpm providers && tsc",
     "clean": "rm -rf *.js *.d.ts* lib providers",
     "css": "node scripts/generate-css",
     "dev": "pnpm css && pnpm providers && tsc -w",
+    "providers": "node scripts/generate-providers",
     "test": "vitest run -c ../utils/vitest.config.ts",
-    "test:watch": "vitest -c ../utils/vitest.config.ts",
-    "providers": "node scripts/generate-providers"
+    "test:watch": "vitest -c ../utils/vitest.config.ts"
   },
-  "devDependencies": {
-    "@simplewebauthn/browser": "9.0.1",
-    "@simplewebauthn/server": "9.0.3",
-    "@simplewebauthn/types": "^9.0.1",
-    "@types/node": "18.11.10",
-    "@types/nodemailer": "6.4.6",
-    "@types/react": "18.0.37",
-    "autoprefixer": "10.4.13",
-    "postcss": "8.4.19",
-    "postcss-nesting": "^12.1.5",
-    "typedoc": "^0.25.12",
-    "typedoc-plugin-markdown": "4.0.0-next.53"
-  }
+  "type": "module",
+  "types": "./index.d.ts"
 }

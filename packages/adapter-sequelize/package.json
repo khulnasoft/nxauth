@@ -1,49 +1,47 @@
 {
   "name": "@nxauth/sequelize-adapter",
-  "version": "2.7.4",
   "description": "Sequelize adapter for Auth.js",
-  "homepage": "https://nxauth.khulnasoft.com",
-  "repository": "https://github.com/khulnasoft/nxauth",
-  "bugs": {
-    "url": "https://github.com/khulnasoft/nxauth/issues"
-  },
+  "version": "2.7.4",
   "author": "github.com/luke-j",
-  "type": "module",
-  "types": "./index.d.ts",
-  "files": [
-    "*.js",
-    "*.d.ts*",
-    "src"
-  ],
+  "bugs": "https://github.com/khulnasoft/nxauth/issues",
+  "dependencies": {
+    "@nxauth/core": "0.37.4"
+  },
+  "devDependencies": {
+    "sequelize": "^6.6.5"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
       "import": "./index.js"
     }
   },
-  "license": "ISC",
+  "files": [
+    "*.js",
+    "*.d.ts*",
+    "src"
+  ],
+  "homepage": "https://nxauth.khulnasoft.com",
   "keywords": [
-    "nxauth",
     "next.js",
+    "nxauth",
     "oauth",
     "sequelize"
   ],
+  "license": "ISC",
+  "peerDependencies": {
+    "sequelize": "^6.6.5"
+  },
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "repository": "https://github.com/khulnasoft/nxauth",
   "scripts": {
-    "test": "vitest -c ../utils/vitest.config.ts",
     "build": "tsc",
-    "clean": "rm -rf *.js *.d.ts*"
+    "clean": "rm -rf *.js *.d.ts*",
+    "test": "vitest -c ../utils/vitest.config.ts"
   },
-  "dependencies": {
-    "@nxauth/core": "workspace:*"
-  },
-  "peerDependencies": {
-    "sequelize": "^6.6.5"
-  },
-  "devDependencies": {
-    "sequelize": "^6.6.5"
-  }
+  "type": "module",
+  "types": "./index.d.ts"
 }

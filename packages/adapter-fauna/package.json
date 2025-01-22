@@ -1,57 +1,55 @@
 {
   "name": "@nxauth/fauna-adapter",
-  "version": "3.7.4",
   "description": "Fauna Adapter for Auth.js",
-  "homepage": "https://nxauth.khulnasoft.com",
-  "repository": "https://github.com/khulnasoft/nxauth",
-  "bugs": {
-    "url": "https://github.com/khulnasoft/nxauth/issues"
-  },
+  "version": "3.7.4",
   "author": "Bhanu Teja P",
+  "bugs": "https://github.com/khulnasoft/nxauth/issues",
   "contributors": [
-    "Nico Domino <yo@ndo.dev>",
+    "Aske Hippe Brun <mail@askehippebrun.com>",
     "KhulnaSoft, Ltd <info@balazsorban.com>",
-    "Aske Hippe Brun <mail@askehippebrun.com>"
+    "Nico Domino <yo@ndo.dev>"
   ],
-  "type": "module",
-  "types": "./index.d.ts",
-  "files": [
-    "*.js",
-    "*.d.ts*",
-    "src"
-  ],
+  "dependencies": {
+    "@nxauth/core": "0.37.4"
+  },
+  "devDependencies": {
+    "fauna": "2.4.1",
+    "fauna-shell": "4.0.0"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
       "import": "./index.js"
     }
   },
-  "license": "ISC",
-  "keywords": [
-    "nxauth",
-    "next.js",
-    "fauna",
-    "faunadb"
+  "files": [
+    "*.js",
+    "*.d.ts*",
+    "src"
   ],
+  "homepage": "https://nxauth.khulnasoft.com",
+  "keywords": [
+    "fauna",
+    "faunadb",
+    "next.js",
+    "nxauth"
+  ],
+  "license": "ISC",
+  "peerDependencies": {
+    "fauna": "^1.3.1"
+  },
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "repository": "https://github.com/khulnasoft/nxauth",
   "scripts": {
-    "fauna": "fauna",
     "build": "tsc",
+    "clean": "rm -rf *.js *.d.ts*",
     "dev": "tsc -w",
-    "test": "./test/test.sh",
-    "clean": "rm -rf *.js *.d.ts*"
+    "fauna": "fauna",
+    "test": "./test/test.sh"
   },
-  "dependencies": {
-    "@nxauth/core": "workspace:*"
-  },
-  "peerDependencies": {
-    "fauna": "^1.3.1"
-  },
-  "devDependencies": {
-    "fauna": "^1.3.1",
-    "fauna-shell": "1.2.1"
-  }
+  "type": "module",
+  "types": "./index.d.ts"
 }

@@ -2,16 +2,11 @@
   "name": "@nxauth/frameworks-template",
   "description": "Authentication for <framework-name>.",
   "version": "0.3.0",
-  "private": true,
-  "type": "module",
-  "files": [
-    "*.js",
-    "*.d.ts*",
-    "lib",
-    "providers",
-    "src",
-    "!vitest.config.js"
-  ],
+  "author": "",
+  "contributors": [],
+  "dependencies": {
+    "@nxauth/core": "0.37.4"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
@@ -25,31 +20,36 @@
       "import": "./providers/*.js"
     }
   },
-  "scripts": {
-    "build": "pnpm clean && pnpm providers && tsc",
-    "clean": "rm -rf lib index.* src/lib/providers",
-    "test": "vitest run",
-    "providers": "node ../utils/scripts/providers"
-  },
+  "files": [
+    "*.js",
+    "*.d.ts*",
+    "lib",
+    "providers",
+    "src",
+    "!vitest.config.js"
+  ],
+  "keywords": [
+    "<framework-name>",
+    "Auth.js",
+    "authentication",
+    "csrf",
+    "jwt",
+    "oauth",
+    "oauth2",
+    "oidc"
+  ],
+  "license": "ISC",
+  "peerDependencies": {},
+  "private": true,
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@nxauth/core": "workspace:*"
-  },
-  "peerDependencies": {},
-  "keywords": [
-    "<framework-name>",
-    "oauth",
-    "jwt",
-    "oauth2",
-    "authentication",
-    "csrf",
-    "oidc",
-    "Auth.js"
-  ],
-  "author": "",
-  "contributors": [],
   "repository": "https://github.com/khulnasoft/nxauth",
-  "license": "ISC"
+  "scripts": {
+    "build": "pnpm clean && pnpm providers && tsc",
+    "clean": "rm -rf lib index.* src/lib/providers",
+    "providers": "node ../utils/scripts/providers",
+    "test": "vitest run"
+  },
+  "type": "module"
 }

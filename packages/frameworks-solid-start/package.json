@@ -1,33 +1,17 @@
 {
   "name": "@nxauth/solid-start",
-  "version": "0.15.4",
   "description": "Authentication for SolidStart.",
-  "license": "ISC",
+  "version": "0.15.4",
   "author": "OrJDev <orjdeveloper@gmail.com>",
-  "homepage": "https://solid-start.nxauth.khulnasoft.com",
-  "repository": "https://github.com/khulnasoft/nxauth",
-  "keywords": [
-    "SolidJS",
-    "SolidStart",
-    "oauth",
-    "jwt",
-    "oauth2",
-    "authentication",
-    "nextjs",
-    "csrf",
-    "oidc",
-    "Auth.js"
-  ],
-  "publishConfig": {
-    "access": "public"
+  "dependencies": {
+    "@nxauth/core": "0.37.4"
   },
-  "type": "module",
-  "files": [
-    "*.js",
-    "*.d.ts*",
-    "providers",
-    "src"
-  ],
+  "devDependencies": {
+    "@solidjs/meta": "0.29.4",
+    "@types/node": "^20.12.7",
+    "solid-js": "^1.5.7",
+    "solid-start": "0.3.11"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
@@ -48,23 +32,39 @@
       "import": "./providers/*.js"
     }
   },
-  "scripts": {
-    "build": "pnpm clean && pnpm providers && tsc",
-    "test": "vitest run -c ../utils/vitest.config.ts",
-    "providers": "node ../utils/scripts/providers",
-    "clean": "rm -rf *.js *.d.ts* providers src/providers"
-  },
-  "dependencies": {
-    "@nxauth/core": "workspace:*"
-  },
-  "devDependencies": {
-    "@solidjs/meta": "^0.28.0",
-    "@types/node": "^18.7.14",
-    "solid-js": "^1.5.7",
-    "solid-start": "^0.2.14"
-  },
+  "files": [
+    "*.js",
+    "*.d.ts*",
+    "providers",
+    "src"
+  ],
+  "homepage": "https://solid-start.nxauth.khulnasoft.com",
+  "keywords": [
+    "Auth.js",
+    "authentication",
+    "csrf",
+    "jwt",
+    "nextjs",
+    "oauth",
+    "oauth2",
+    "oidc",
+    "SolidJS",
+    "SolidStart"
+  ],
+  "license": "ISC",
   "peerDependencies": {
     "solid-js": "^1.5.7",
     "solid-start": "^0.2.14"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/khulnasoft/nxauth",
+  "scripts": {
+    "build": "pnpm clean && pnpm providers && tsc",
+    "clean": "rm -rf *.js *.d.ts* providers src/providers",
+    "providers": "node ../utils/scripts/providers",
+    "test": "vitest run -c ../utils/vitest.config.ts"
+  },
+  "type": "module"
 }

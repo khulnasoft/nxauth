@@ -1,17 +1,24 @@
 {
   "name": "nxauth",
-  "version": "5.0.0-beta.25",
   "description": "Authentication for Next.js",
-  "homepage": "https://nxauth.khulnasoft.com",
-  "repository": "https://github.com/khulnasoft/nxauth.git",
+  "version": "5.0.0-beta.25",
   "author": "KhulnaSoft, Ltd <info@balazsorban.com>",
   "contributors": [
     "Iain Collins <me@iaincollins.com>",
-    "Nico Domino <yo@ndo.dev>",
     "Lluis Agusti <hi@llu.lu>",
+    "Nico Domino <yo@ndo.dev>",
     "Thang Huu Vu <hi@thvu.dev>"
   ],
-  "type": "module",
+  "dependencies": {
+    "@nxauth/core": "0.37.4"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.78",
+    "dotenv": "^10.0.0",
+    "next": "15.0.0-rc.1",
+    "nodemailer": "^6.9.3",
+    "react": "19.0.0-rc-4c58fce7-20240904"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
@@ -56,27 +63,6 @@
     },
     "./package.json": "./package.json"
   },
-  "keywords": [
-    "react",
-    "nodejs",
-    "oauth",
-    "jwt",
-    "oauth2",
-    "authentication",
-    "nextjs",
-    "csrf",
-    "oidc",
-    "nextauth"
-  ],
-  "scripts": {
-    "build": "pnpm clean && pnpm providers && tsc",
-    "clean": "rm -rf *.js *.d.ts* lib providers",
-    "dev": "pnpm providers && tsc -w",
-    "test": "vitest run -c ../utils/vitest.config.ts",
-    "test:watch": "vitest -c ../utils/vitest.config.ts",
-    "test:e2e": "playwright test",
-    "providers": "node ../utils/scripts/providers"
-  },
   "files": [
     "*.d.ts*",
     "*.js",
@@ -84,16 +70,26 @@
     "providers",
     "src"
   ],
+  "homepage": "https://nxauth.khulnasoft.com",
+  "keywords": [
+    "authentication",
+    "csrf",
+    "jwt",
+    "nextauth",
+    "nextjs",
+    "nodejs",
+    "oauth",
+    "oauth2",
+    "oidc",
+    "react"
+  ],
   "license": "ISC",
-  "dependencies": {
-    "@nxauth/core": "workspace:*"
-  },
   "peerDependencies": {
     "@simplewebauthn/browser": "^9.0.1",
-    "@simplewebauthn/server": "^9.0.2",
-    "next": "^14.0.0-0 || ^15.0.0-0",
-    "nodemailer": "^6.6.5",
-    "react": "^18.2.0 || ^19.0.0-0"
+    "@simplewebauthn/server": "^9.0.3",
+    "next": "15.0.0-rc.1",
+    "nodemailer": "^6.9.3",
+    "react": "19.0.0-rc-4c58fce7-20240904"
   },
   "peerDependenciesMeta": {
     "@simplewebauthn/browser": {
@@ -106,11 +102,15 @@
       "optional": true
     }
   },
-  "devDependencies": {
-    "@types/react": "18.0.37",
-    "dotenv": "^10.0.0",
-    "next": "15.0.0-rc.1",
-    "nodemailer": "^6.9.3",
-    "react": "^18.2.0"
-  }
+  "repository": "https://github.com/khulnasoft/nxauth.git",
+  "scripts": {
+    "build": "pnpm clean && pnpm providers && tsc",
+    "clean": "rm -rf *.js *.d.ts* lib providers",
+    "dev": "pnpm providers && tsc -w",
+    "providers": "node ../utils/scripts/providers",
+    "test": "vitest run -c ../utils/vitest.config.ts",
+    "test:e2e": "playwright test",
+    "test:watch": "vitest -c ../utils/vitest.config.ts"
+  },
+  "type": "module"
 }

@@ -1,53 +1,51 @@
 {
   "name": "@nxauth/firebase-adapter",
-  "version": "2.7.4",
   "description": "Firebase adapter for Auth.js",
-  "homepage": "https://nxauth.khulnasoft.com",
-  "repository": "https://github.com/khulnasoft/nxauth",
-  "bugs": {
-    "url": "https://github.com/khulnasoft/nxauth/issues"
-  },
+  "version": "2.7.4",
   "author": "Ron Houben <ron.houben85@gmail.com>",
+  "bugs": "https://github.com/khulnasoft/nxauth/issues",
   "contributors": [
-    "Nico Domino <yo@ndo.dev>",
-    "Alex Meuer <github@alexmeuer.com>"
+    "Alex Meuer <github@alexmeuer.com>",
+    "Nico Domino <yo@ndo.dev>"
   ],
-  "type": "module",
-  "types": "./index.d.ts",
-  "files": [
-    "*.js",
-    "*.d.ts*",
-    "src"
-  ],
+  "dependencies": {
+    "@nxauth/core": "0.37.4"
+  },
+  "devDependencies": {
+    "firebase-admin": "13.0.2"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
       "import": "./index.js"
     }
   },
-  "license": "ISC",
-  "keywords": [
-    "nxauth",
-    "next.js",
-    "firebase",
-    "firebase-admin"
+  "files": [
+    "*.js",
+    "*.d.ts*",
+    "src"
   ],
+  "homepage": "https://nxauth.khulnasoft.com",
+  "keywords": [
+    "firebase",
+    "firebase-admin",
+    "next.js",
+    "nxauth"
+  ],
+  "license": "ISC",
+  "peerDependencies": {
+    "firebase-admin": "^12.0.0"
+  },
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "repository": "https://github.com/khulnasoft/nxauth",
   "scripts": {
     "build": "tsc",
-    "test": "./test/test.sh",
-    "clean": "rm -rf *.js *.d.ts*"
+    "clean": "rm -rf *.js *.d.ts*",
+    "test": "./test/test.sh"
   },
-  "dependencies": {
-    "@nxauth/core": "workspace:*"
-  },
-  "peerDependencies": {
-    "firebase-admin": "^12.0.0"
-  },
-  "devDependencies": {
-    "firebase-admin": "^12.0.0"
-  }
+  "type": "module",
+  "types": "./index.d.ts"
 }

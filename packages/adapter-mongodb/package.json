@@ -1,50 +1,48 @@
 {
   "name": "@nxauth/mongodb-adapter",
-  "version": "3.7.4",
   "description": "MongoDB adapter for Auth.js",
-  "homepage": "https://nxauth.khulnasoft.com",
-  "repository": "https://github.com/khulnasoft/nxauth",
-  "bugs": {
-    "url": "https://github.com/khulnasoft/nxauth/issues"
-  },
+  "version": "3.7.4",
   "author": "KhulnaSoft, Ltd <info@balazsorban.com>",
-  "type": "module",
-  "types": "./index.d.ts",
-  "files": [
-    "*.js",
-    "*.d.ts*",
-    "src"
-  ],
+  "bugs": "https://github.com/khulnasoft/nxauth/issues",
+  "dependencies": {
+    "@nxauth/core": "0.37.4"
+  },
+  "devDependencies": {
+    "mongodb": "^6.9.0"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
       "import": "./index.js"
     }
   },
-  "license": "ISC",
-  "keywords": [
-    "nxauth",
-    "next.js",
-    "oauth",
-    "mongodb",
-    "adapter"
+  "files": [
+    "*.js",
+    "*.d.ts*",
+    "src"
   ],
+  "homepage": "https://nxauth.khulnasoft.com",
+  "keywords": [
+    "adapter",
+    "mongodb",
+    "next.js",
+    "nxauth",
+    "oauth"
+  ],
+  "license": "ISC",
+  "peerDependencies": {
+    "mongodb": "^6.9.0"
+  },
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "repository": "https://github.com/khulnasoft/nxauth",
   "scripts": {
-    "test": "./test/test.sh",
     "build": "tsc",
-    "clean": "rm -rf *.js *.d.ts*"
+    "clean": "rm -rf *.js *.d.ts*",
+    "test": "./test/test.sh"
   },
-  "dependencies": {
-    "@nxauth/core": "workspace:*"
-  },
-  "peerDependencies": {
-    "mongodb": "^6"
-  },
-  "devDependencies": {
-    "mongodb": "^6.0.0"
-  }
+  "type": "module",
+  "types": "./index.d.ts"
 }

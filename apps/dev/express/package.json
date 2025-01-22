@@ -1,22 +1,9 @@
 {
   "name": "express-auth-app",
   "description": "Express + Auth.js Developer app",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "start": "node --env-file=.env dist/server.js",
-    "clean": "rm -rf dist",
-    "build": "pnpm build:ts && pnpm build:css",
-    "build:ts": "tsc",
-    "build:css": "tailwindcss -i ./public/css/style.css -o ./public/css/output.css",
-    "dev": "tsx watch --env-file=.env src/server.ts & pnpm build:css -w",
-    "lint": "eslint src/*.ts --fix",
-    "prettier": "prettier src/*.ts --write"
-  },
   "author": "Auth.js Team (https://nxauth.khulnasoft.com/contributors)",
-  "license": "MIT",
   "dependencies": {
-    "@nxauth/express": "workspace:*",
+    "@nxauth/express": "0.8.4",
     "express": "^4.20.0",
     "morgan": "^1.10.0",
     "pug": "^3.0.2"
@@ -27,6 +14,19 @@
     "@types/morgan": "^1.9.9",
     "@types/pug": "^2.0.10",
     "tsx": "^4.7.3",
-    "typescript": "5.4.5"
-  }
+    "typescript": "^5.4.5"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "pnpm build:ts && pnpm build:css",
+    "build:css": "tailwindcss -i ./public/css/style.css -o ./public/css/output.css",
+    "build:ts": "tsc",
+    "clean": "rm -rf dist",
+    "dev": "tsx watch --env-file=.env src/server.ts & pnpm build:css -w",
+    "lint": "eslint src/*.ts --fix",
+    "prettier": "prettier src/*.ts --write",
+    "start": "node --env-file=.env dist/server.js"
+  },
+  "type": "module"
 }

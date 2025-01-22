@@ -1,51 +1,49 @@
 {
   "name": "@nxauth/dgraph-adapter",
-  "version": "2.7.4",
   "description": "Dgraph adapter for Auth.js",
-  "homepage": "https://nxauth.khulnasoft.com",
-  "repository": "https://github.com/khulnasoft/nxauth",
-  "bugs": {
-    "url": "https://github.com/khulnasoft/nxauth/issues"
-  },
+  "version": "2.7.4",
   "author": "Arnaud Derbey <arnaud@derbey.dev>",
+  "bugs": "https://github.com/khulnasoft/nxauth/issues",
   "contributors": [
     "KhulnaSoft, Ltd <info@balazsorban.com>"
   ],
-  "type": "module",
-  "types": "./index.d.ts",
-  "files": [
-    "*.js",
-    "*.d.ts*",
-    "lib",
-    "src"
-  ],
+  "dependencies": {
+    "@nxauth/core": "0.37.4",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "9.0.7"
+  },
   "exports": {
     ".": {
       "types": "./index.d.ts",
       "import": "./index.js"
     }
   },
-  "license": "ISC",
-  "keywords": [
-    "nxauth",
-    "next.js",
-    "dgraph",
-    "graphql"
+  "files": [
+    "*.js",
+    "*.d.ts*",
+    "lib",
+    "src"
   ],
+  "homepage": "https://nxauth.khulnasoft.com",
+  "keywords": [
+    "dgraph",
+    "graphql",
+    "next.js",
+    "nxauth"
+  ],
+  "license": "ISC",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "repository": "https://github.com/khulnasoft/nxauth",
   "scripts": {
     "build": "tsc",
-    "test": "./test/test.sh",
-    "clean": "rm -rf *.js *.d.ts* lib"
+    "clean": "rm -rf *.js *.d.ts* lib",
+    "test": "./test/test.sh"
   },
-  "devDependencies": {
-    "@types/jsonwebtoken": "^8.5.5"
-  },
-  "dependencies": {
-    "@nxauth/core": "workspace:*",
-    "jsonwebtoken": "^9.0.0"
-  }
+  "type": "module",
+  "types": "./index.d.ts"
 }

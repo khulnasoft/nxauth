@@ -1,82 +1,31 @@
 {
   "name": "@nxauth/sveltekit",
-  "version": "1.7.4",
   "description": "Authentication for SvelteKit.",
-  "keywords": [
-    "authentication",
-    "authjs",
-    "jwt",
-    "sveltekit",
-    "oauth",
-    "oidc",
-    "passwordless",
-    "svelte"
-  ],
-  "license": "ISC",
-  "homepage": "https://sveltekit.nxauth.khulnasoft.com",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/khulnasoft/nxauth",
-    "directory": "packages/frameworks-sveltekit"
-  },
+  "version": "1.7.4",
   "author": "Thang Huu Vu <hi@thvu.dev>",
   "contributors": [
-    "Thang Huu Vu <hi@thvu.dev>",
+    "Iain Collins <me@iaincollins.com>",
     "KhulnaSoft, Ltd <info@balazsorban.com>",
-    "Nico Domino <yo@ndo.dev>",
     "Lluis Agusti <hi@llu.lu>",
-    "Iain Collins <me@iaincollins.com>"
+    "Nico Domino <yo@ndo.dev>",
+    "Thang Huu Vu <hi@thvu.dev>"
   ],
-  "scripts": {
-    "build": "pnpm clean && pnpm providers && pnpm check && svelte-package",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "clean": "rm -rf dist src/lib/providers",
-    "dev": "pnpm providers && svelte-package -w",
-    "preview": "vite preview",
-    "providers": "node ../utils/scripts/providers.js --out src/lib",
-    "test": "vitest run -c ../utils/vitest.config.ts"
-  },
-  "devDependencies": {
-    "@sveltejs/adapter-auto": "^3.2.5",
-    "@sveltejs/kit": "^2.6.4",
-    "@sveltejs/package": "^2.3.5",
-    "@sveltejs/vite-plugin-svelte": "^3.1.2",
-    "@types/set-cookie-parser": "^2.4.10",
-    "svelte": "^4.2.19",
-    "svelte-check": "^4.0.4",
-    "tslib": "^2.7.0",
-    "typedoc": "^0.25.12",
-    "typedoc-plugin-markdown": "4.0.0-next.53"
-  },
   "dependencies": {
-    "@nxauth/core": "workspace:*",
+    "@nxauth/core": "0.37.4",
     "set-cookie-parser": "^2.7.0"
   },
-  "peerDependencies": {
-    "@simplewebauthn/browser": "^9.0.1",
-    "@simplewebauthn/server": "^9.0.3",
-    "@sveltejs/kit": "^1.0.0 || ^2.0.0",
-    "nodemailer": "^6.6.5",
-    "svelte": "^3.54.0 || ^4.0.0 || ^5.0.0-0"
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "4.0.0",
+    "@sveltejs/kit": "^2.6.4",
+    "@sveltejs/package": "^2.3.5",
+    "@sveltejs/vite-plugin-svelte": "5.0.3",
+    "@types/set-cookie-parser": "^2.4.10",
+    "svelte": "5.19.1",
+    "svelte-check": "^4.0.4",
+    "tslib": "^2.7.0",
+    "typedoc": "^0.25.13",
+    "typedoc-plugin-markdown": "4.0.0-next.53"
   },
-  "peerDependenciesMeta": {
-    "@simplewebauthn/browser": {
-      "optional": true
-    },
-    "@simplewebauthn/server": {
-      "optional": true
-    },
-    "nodemailer": {
-      "optional": true
-    }
-  },
-  "type": "module",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -105,5 +54,56 @@
       "import": "./dist/providers/*.js"
     },
     "./package.json": "./package.json"
-  }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "homepage": "https://sveltekit.nxauth.khulnasoft.com",
+  "keywords": [
+    "authentication",
+    "authjs",
+    "jwt",
+    "oauth",
+    "oidc",
+    "passwordless",
+    "svelte",
+    "sveltekit"
+  ],
+  "license": "ISC",
+  "peerDependencies": {
+    "@simplewebauthn/browser": "^9.0.1",
+    "@simplewebauthn/server": "^9.0.3",
+    "@sveltejs/kit": "^2.6.4",
+    "nodemailer": "^6.9.3",
+    "svelte": "^4.2.19"
+  },
+  "peerDependenciesMeta": {
+    "@simplewebauthn/browser": {
+      "optional": true
+    },
+    "@simplewebauthn/server": {
+      "optional": true
+    },
+    "nodemailer": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khulnasoft/nxauth",
+    "directory": "packages/frameworks-sveltekit"
+  },
+  "scripts": {
+    "build": "pnpm clean && pnpm providers && pnpm check && svelte-package",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "clean": "rm -rf dist src/lib/providers",
+    "dev": "pnpm providers && svelte-package -w",
+    "preview": "vite preview",
+    "providers": "node ../utils/scripts/providers.js --out src/lib",
+    "test": "vitest run -c ../utils/vitest.config.ts"
+  },
+  "type": "module",
+  "types": "./dist/index.d.ts"
 }
